@@ -30,7 +30,7 @@ def get_github_repositories():
     else:
         return jsonify({'error': 'Repositório não encontrado ou falha na solicitação de API'}), 404
 
-# Pesquisa o repositório pelo nome do usuário
+# Pesquisa os repositórios relacionados ao nome do usuário
 # https://api.github.com/users/{user}/repos
 @app.route('/repositorieuser/<user>', methods=['GET'])
 def get_github_repositories_by_user(user):
@@ -44,6 +44,19 @@ def get_github_repositories_by_user(user):
         return jsonify(resultados_user)
     else:
         return jsonify({'error': 'Usuário não encontrado ou falha na solicitação de API'}), 404
+
+# Pesquisa o repositório de acordo com o usuário
+# https://api.github.com/repos/jayr0n/UnfollowbyVisualRecognition
+@app.route('/repository/<user>/<repo>')
+def get_github_repository(user, repo):
+    url = f'https://api.github.com/repos/{user}/{repo}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        return jsonify(response.json())
+    else:
+        return jsonify({'error': 'Usuário/Repositório não encontrado ou falha na solicitação de API'}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
