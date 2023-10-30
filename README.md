@@ -2,19 +2,26 @@
 
 Esse projeto foi feito utilizando [Flask](https://flask.palletsprojects.com/). 🧐
 
+---
+
 ## Pré-requisitos
 
 Esse projeto requer [flask](https://flask.palletsprojects.com/)
-
 ```
 pip install Flask
 ```
-
 Esse projeto requer [jsonify](https://pypi.org/project/jsonify/)
-
 ```
 pip install jsonify
 ```
+---
+## Como usar?
+
+Depois de ter instalado os requisitos, você deve usar o comando abaixo para inciar o **Flask**:
+```
+flask run
+```
+---
 ## Visão Geral
 
 ### A API apresenta dois recursos: 
@@ -34,5 +41,13 @@ pip install jsonify
 - **Exemplo de uso:**
   ```
   /repositorieuser/jayr0n
+  ```
+  ---
+- **Endpoint 3:** /repository/{user}/{repo}
+  - **user**(usuário que você quer pesquisar)
+  - **repo**(repositório que você quer pesquisar)
+- **Exemplo de uso:**
+  ```
+  /repository/jayr0n/UnfollowbyVisualRecognition
   ```
 
